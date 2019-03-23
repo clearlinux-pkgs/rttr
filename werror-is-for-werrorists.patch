@@ -1,0 +1,12 @@
+--- rttr-0.9.6/CMake/utility.cmake~	2018-03-26 21:13:00.000000000 +0000
++++ rttr-0.9.6/CMake/utility.cmake	2019-03-23 13:31:51.474704242 +0000
+@@ -392,8 +392,7 @@
+ ####################################################################################
+ function( set_compiler_warnings target)
+   if(CMAKE_CXX_COMPILER_ID STREQUAL "GNU")
+-    set(WARNINGS "-Werror"
+-                 "-Wall")
++    set(WARNINGS "-Wall")
+   elseif(CMAKE_CXX_COMPILER_ID MATCHES "Clang")
+     set(WARNINGS "-Werror"
+                  "-Wall")
