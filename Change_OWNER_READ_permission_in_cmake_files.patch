@@ -1,0 +1,55 @@
+From 240b346e57ab3b116586541faaa542003f73b5f6 Mon Sep 17 00:00:00 2001
+From: soroshsabz <soorosh_abi@hotmail.com>
+Date: Wed, 14 Aug 2019 02:12:12 +0430
+Subject: [PATCH] Change OWNER_READ permission in cmake files. (fixes #147)
+ (#228)
+
+sorry for the delay
+---
+ CMake/config.cmake  | 2 +-
+ CMake/utility.cmake | 2 +-
+ doc/CMakeLists.txt  | 4 ++--
+ 3 files changed, 4 insertions(+), 4 deletions(-)
+
+diff --git a/CMake/config.cmake b/CMake/config.cmake
+index a7181991..1b692f50 100644
+--- a/CMake/config.cmake
++++ b/CMake/config.cmake
+@@ -172,5 +172,5 @@ if (BUILD_INSTALLER)
+ 
+     install(FILES "${LICENSE_FILE}" "${README_FILE}"
+             DESTINATION ${RTTR_ADDITIONAL_FILES_INSTALL_DIR}
+-            PERMISSIONS OWNER_READ)
++            PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
+ endif()
+diff --git a/CMake/utility.cmake b/CMake/utility.cmake
+index 8dda62eb..cd1e835c 100644
+--- a/CMake/utility.cmake
++++ b/CMake/utility.cmake
+@@ -165,7 +165,7 @@ function(loadFolder FOLDER _HEADER_FILES _SOURCE_FILES)
+     getNameOfDir(CMAKE_CURRENT_SOURCE_DIR DIRNAME)
+     if (${shouldInstall})
+       if (NOT ${FULL_HEADER_PATH} MATCHES ".*_p.h$") # we don't want to install header files which are marked as private
+-        install(FILES ${FULL_HEADER_PATH} DESTINATION "include/${DIRNAME}/${REL_PATH}" PERMISSIONS OWNER_READ)
++        install(FILES ${FULL_HEADER_PATH} DESTINATION "include/${DIRNAME}/${REL_PATH}" PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
+       endif()
+     endif()
+   endforeach()
+diff --git a/doc/CMakeLists.txt b/doc/CMakeLists.txt
+index bacb2802..de706008 100644
+--- a/doc/CMakeLists.txt
++++ b/doc/CMakeLists.txt
+@@ -133,11 +133,11 @@ set_target_properties(doc PROPERTIES FOLDER "Documentation")
+ install(DIRECTORY "${DOXYGEN_OUTPUT_DIRECTORY}/${DOXYGEN_CUSTOM_HTML_DIR}"
+         DESTINATION "${DOXYGEN_DOC_INSTALL_DIR}"
+         PATTERN "*.*"
+-        PERMISSIONS OWNER_READ)
++        PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
+ 
+ install(FILES "${DOXYGEN_OUTPUT_DIRECTORY}/${DOXYGEN_INDEX_FILE}"
+         DESTINATION "${DOXYGEN_DOC_INSTALL_DIR}"
+-        PERMISSIONS OWNER_READ)
++        PERMISSIONS OWNER_READ GROUP_READ WORLD_READ)
+ 
+ #########################################################################################
+ 

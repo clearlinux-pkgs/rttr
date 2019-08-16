@@ -1,1 +1,2 @@
 werror-is-for-werrorists.patch
+Change_OWNER_READ_permission_in_cmake_files.patch
