@@ -4,7 +4,7 @@
 #
 Name     : rttr
 Version  : 0.9.6
-Release  : 2
+Release  : 3
 URL      : https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz
 Source0  : https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz
 Summary  : No detailed summary available
