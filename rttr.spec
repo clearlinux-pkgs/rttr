@@ -4,7 +4,7 @@
 #
 Name     : rttr
 Version  : 0.9.6
-Release  : 3
+Release  : 4
 URL      : https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz
 Source0  : https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz
 Summary  : No detailed summary available
@@ -71,6 +71,7 @@ license components for the rttr package.
 
 %prep
 %setup -q -n rttr-0.9.6
+cd %{_builddir}/rttr-0.9.6
 %patch1 -p1
 %patch2 -p1
 
@@ -79,24 +80,24 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1565987250
+export SOURCE_DATE_EPOCH=1592656639
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
 export CFLAGS="$CFLAGS -fno-lto "
-export FCFLAGS="$CFLAGS -fno-lto "
-export FFLAGS="$CFLAGS -fno-lto "
+export FCFLAGS="$FFLAGS -fno-lto "
+export FFLAGS="$FFLAGS -fno-lto "
 export CXXFLAGS="$CXXFLAGS -fno-lto "
 %cmake .. -DBUILD_UNIT_TESTS=OFF
-make  %{?_smp_mflags} VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1565987250
+export SOURCE_DATE_EPOCH=1592656639
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/rttr
-cp LICENSE.txt %{buildroot}/usr/share/package-licenses/rttr/LICENSE.txt
-cp doc/md_pages/license.md %{buildroot}/usr/share/package-licenses/rttr/doc_md_pages_license.md
+cp %{_builddir}/rttr-0.9.6/LICENSE.txt %{buildroot}/usr/share/package-licenses/rttr/bdd981ce0fa4af170de8ca29b2521f88fd073187
+cp %{_builddir}/rttr-0.9.6/doc/md_pages/license.md %{buildroot}/usr/share/package-licenses/rttr/94305339cac78b76f2e3e0933c7286fc79ab5a06
 pushd clr-build
 %make_install
 popd
@@ -505,5 +506,5 @@ popd
 
 %files license
 %defattr(0644,root,root,0755)
-/usr/share/package-licenses/rttr/LICENSE.txt
-/usr/share/package-licenses/rttr/doc_md_pages_license.md
+/usr/share/package-licenses/rttr/94305339cac78b76f2e3e0933c7286fc79ab5a06
+/usr/share/package-licenses/rttr/bdd981ce0fa4af170de8ca29b2521f88fd073187
