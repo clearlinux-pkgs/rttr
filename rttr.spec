@@ -4,7 +4,7 @@
 #
 Name     : rttr
 Version  : 0.9.6
-Release  : 4
+Release  : 5
 URL      : https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz
 Source0  : https://github.com/rttrorg/rttr/archive/v0.9.6.tar.gz
 Summary  : No detailed summary available
@@ -80,7 +80,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592656639
+export SOURCE_DATE_EPOCH=1632200648
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -93,7 +93,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1592656639
+export SOURCE_DATE_EPOCH=1632200648
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/rttr
 cp %{_builddir}/rttr-0.9.6/LICENSE.txt %{buildroot}/usr/share/package-licenses/rttr/bdd981ce0fa4af170de8ca29b2521f88fd073187
@@ -179,7 +179,7 @@ popd
 /usr/doc/rttr-0-9-6/doc.png
 /usr/doc/rttr-0-9-6/doxy-boot.js
 /usr/doc/rttr-0-9-6/doxygen.css
-/usr/doc/rttr-0-9-6/doxygen.png
+/usr/doc/rttr-0-9-6/doxygen.svg
 /usr/doc/rttr-0-9-6/dynsections.js
 /usr/doc/rttr-0-9-6/enum__flags_8h.html
 /usr/doc/rttr-0-9-6/enum__flags_8h_source.html
